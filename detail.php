@@ -155,19 +155,11 @@ $preference->save();
                         <div class="as-searchnav-placeholder" style="height: 77px;">
                             <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
                                 <div class="as-accessories-filter-tile column large-6 small-3">
-
-
-
-									<?php echo "v3 <br>" . getSiteUrl() . "<br>"; ?>
-
-
                                     <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
                                         <h2 class=" as-filter-button-text">
                                             Smartphones
                                         </h2>
                                     </button>
-
-
                                 </div>
 
                             </div>
