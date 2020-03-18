@@ -13,18 +13,12 @@ $preference = new MercadoPago\Preference();
 
 //Urls de Retorno
 $preference->back_urls = array(
-    "success" => "https://www.tu-sitio/success",
-    "failure" => "http://www.tu-sitio/failure",
-    "pending" => "http://www.tu-sitio/pending"
+	"success"	=> getSiteUrl() . "/success.php",
+    "failure"	=> getSiteUrl() . "/failure.php",
+    "pending"	=> getSiteUrl() . "/pending.php"
 );
+
 $preference->auto_return = "approved";
-// $preference->back_urls = array(
-// 	"success"	=> getSiteUrl() . "/success.php",
-//     "failure"	=> getSiteUrl() . "/failure.php",
-//     "pending"	=> getSiteUrl() . "/pending.php"
-// );
-//
-// $preference->auto_return = "approved";
 //Fin Urls de Retorno
 
 //Preferencias de Pago
@@ -222,7 +216,7 @@ $preference->save();
                                             <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                     </div>
-									<form action="/procesar-pago" method="POST">
+									<form action="/procesar-pago.php" method="POST">
 										<script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-header-color="#2D3277" data-elements-color="#2D3277" data-button-label="Pagar la compra">
 										</script>
 									</form>
