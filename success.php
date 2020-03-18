@@ -88,11 +88,11 @@
 							</p>
 
 							<p>
-								<strong>Número de orden del pedido:</strong> <?php echo $_POST["merchant_order_id"]; ?>
+								<strong>Número de orden del pedido:</strong> <?php echo $_GET["merchant_order_id"]; ?>
 							</p>
 
 							<p>
-								<strong>ID de pago de Mercado Pago:</strong> <?php echo $_POST["collection_id"]; ?>
+								<strong>ID de pago de Mercado Pago:</strong> <?php echo $_GET["collection_id"]; ?>
 							</p>
 
 							<p>
