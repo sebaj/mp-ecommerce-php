@@ -1,5 +1,8 @@
 <?php
 
+echo getSiteUrl() . "/success.php";
+die();
+
 function getSiteUrl()
 {
 	$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
@@ -11,6 +14,16 @@ MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fc
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
+
+//Urls de Retorno
+$preference->back_urls = array(
+	"success"	=> getSiteUrl() . "/success.php",
+    "failure"	=> getSiteUrl() . "/failure.php",
+    "pending"	=> getSiteUrl() . "/pending.php"
+);
+
+$preference->auto_return = "approved";
+//Fin Urls de Retorno
 
 //Preferencias de Pago
 $preference->payment_methods = array(
@@ -65,16 +78,6 @@ $preference->items = array($item);
 
 //# de Orden
 $preference->external_reference = "ABCD1234";
-
-//Urls de Retorno
-$preference->back_urls = array(
-	"success"	=> getSiteUrl() . "/success.php",
-    "failure"	=> getSiteUrl() . "/failure.php",
-    "pending"	=> getSiteUrl() . "/pending.php",
-);
-
-$preference->auto_return = "approved";
-//Fin Urls de Retorno
 
 //Guardo preverencias
 $preference->save();
