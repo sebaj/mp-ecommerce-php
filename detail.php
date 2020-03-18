@@ -1,16 +1,69 @@
 <?php
+
+function getSiteUrl()
+{
+	$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+	return $protocol . "://" . $_SERVER['SERVER_NAME'];
+}
+
 require __DIR__  . '/vendor/autoload.php';
 MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398");
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
+//Preferencias de Pago
+$preference->payment_methods = array(
+  "excluded_payment_methods" => array(
+    array("id" => "amex")
+  ),
+  "excluded_payment_types" => array(
+    array("id" => "atm")
+  ),
+  "installments" => 6
+);
+
+
+//Datos del pagador
+$identification = array(
+	"type"		=> "DNI",
+	"number"	=> "22.333.444"
+);
+
+$phone			= array(
+	"area_code"	=> "011",
+	"number"	=> "2222-3333"
+);
+
+$address		= array(
+	"street_name"	=> "Falsa",
+	"street_number"	=> 123,
+	"zip_code"		=> "1111"
+);
+
+$payer = new MercadoPago\Payer();
+
+$payer->name			= "Lalo";
+$payer->surname			= "Landa";
+$payer->identification	= $identification;
+$payer->email			= "test_user_63274575@testuser.com";
+$payer->phone			= $phone;
+$payer->address			= $address;
+//FIN Datos del pagador
+
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = $_POST['title'];
-$item->quantity = $_POST['unit'];
-$item->unit_price = $_POST['price'];
+
+$item->id			= 1234;
+$item->title		= $_POST['title'];
+$item->description	= "Dispositivo móvil de Tienda e-commerce";
+$item->picture_url	= getSiteUrl() . $_POST['img'];
+$item->quantity		= $_POST['unit'];
+$item->unit_price	= $_POST['price'];
+
 $preference->items = array($item);
+
+//Guardo preverencias
 $preference->save();
 ?>
 
