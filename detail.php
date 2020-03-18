@@ -158,7 +158,7 @@ $preference->save();
 
 
 
-									<?php echo "v2 <br>" . getSiteUrl() . "<br>"; ?>
+									<?php echo "v3 <br>" . getSiteUrl() . "<br>"; ?>
 
 
                                     <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
