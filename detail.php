@@ -11,15 +11,16 @@ MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fc
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
-//Urls de Retorno
+//Urls de Retorno & IPN
 $preference->back_urls = array(
 	"success"	=> getSiteUrl() . "/success.php",
     "failure"	=> getSiteUrl() . "/failure.php",
     "pending"	=> getSiteUrl() . "/pending.php"
 );
 
-$preference->auto_return = "approved";
-//Fin Urls de Retorno
+$preference->auto_return		= "approved";
+$preference->notification_url	= getSiteUrl() . "/ipn.php";
+//Fin Urls de Retorno & IPN
 
 //Preferencias de Pago
 $preference->payment_methods = array(
