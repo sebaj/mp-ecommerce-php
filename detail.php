@@ -1,8 +1,4 @@
 <?php
-
-echo getSiteUrl() . "/success.php";
-die();
-
 function getSiteUrl()
 {
 	$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
