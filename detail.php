@@ -63,6 +63,19 @@ $item->unit_price	= $_POST['price'];
 
 $preference->items = array($item);
 
+//# de Orden
+$preference->external_reference = "ABCD1234";
+
+//Urls de Retorno
+$preference->back_urls = array(
+	"success"	=> getSiteUrl() . "/success.php",
+    "failure"	=> getSiteUrl() . "/failure.php",
+    "pending"	=> getSiteUrl() . "/pending.php",
+);
+
+$preference->auto_return = "approved";
+//Fin Urls de Retorno
+
 //Guardo preverencias
 $preference->save();
 ?>
@@ -202,7 +215,9 @@ $preference->save();
 									<form action="/procesar-pago" method="POST">
 										<script
 										src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-										data-preference-id="<?php echo $preference->id; ?>">
+										data-preference-id="<?php echo $preference->id; ?>"
+										data-header-color="#2D3277"
+										data-button-label="Pagar la compra">
 										</script>
 									</form>
                                 </div>
