@@ -1,13 +1,8 @@
 <?php
 require __DIR__  . '/vendor/autoload.php';
-//$mp = new MercadoPago\SDK();
 MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398");
-
-$response = MercadoPago\SDK::get("/v1/payments/6101392552");
-
-var_dump($response);
-die();
- ?>
+$mpResponse = MercadoPago\SDK::get( "/v1/payments/". $_GET["collection_id"] );
+?>
 
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -91,11 +86,11 @@ die();
 							</h3>
 
 							<p>
-								<strong>payment_method_id que se usó para pagar:</strong> <em>no retorna este dato mercadopago</em>
+								<strong>payment_method_id que se usó para pagar:</strong> <?php echo $mpResponse["payment_method_id"]; ?>
 							</p>
 
 							<p>
-								<strong>Monto pagado:</strong> <em>no retorna este dato mercadopago</em>
+								<strong>Monto pagado:</strong> <?php echo $mpResponse["total_paid_amount"]; ?>
 							</p>
 
 							<p>
