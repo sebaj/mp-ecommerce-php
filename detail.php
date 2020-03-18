@@ -13,12 +13,18 @@ $preference = new MercadoPago\Preference();
 
 //Urls de Retorno
 $preference->back_urls = array(
-	"success"	=> getSiteUrl() . "/success.php",
-    "failure"	=> getSiteUrl() . "/failure.php",
-    "pending"	=> getSiteUrl() . "/pending.php"
+    "success" => "https://www.tu-sitio/success",
+    "failure" => "http://www.tu-sitio/failure",
+    "pending" => "http://www.tu-sitio/pending"
 );
-
 $preference->auto_return = "approved";
+// $preference->back_urls = array(
+// 	"success"	=> getSiteUrl() . "/success.php",
+//     "failure"	=> getSiteUrl() . "/failure.php",
+//     "pending"	=> getSiteUrl() . "/pending.php"
+// );
+//
+// $preference->auto_return = "approved";
 //Fin Urls de Retorno
 
 //Preferencias de Pago
