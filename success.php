@@ -90,7 +90,7 @@ $mpResponse = MercadoPago\SDK::get( "/v1/payments/". $_GET["collection_id"] );
 							</p>
 
 							<p>
-								<strong>Monto pagado:</strong> <?php echo $mpRespons["body"]["total_paid_amount"]; ?>
+								<strong>Monto pagado:</strong> <?php echo $mpRespons["body"]["transaction_details"]["total_paid_amount"]; ?>
 							</p>
 
 							<p>
