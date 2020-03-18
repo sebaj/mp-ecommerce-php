@@ -3,7 +3,7 @@ require __DIR__  . '/vendor/autoload.php';
 //$mp = new MercadoPago\SDK();
 MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398");
 
-$response = MercadoPago\SDK::get("https://api.mercadopago.com/v1/payments/6101392552");
+$response = MercadoPago\SDK::get("/v1/payments/6101392552");
 
 var_dump($response);
 die();
