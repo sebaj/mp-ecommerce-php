@@ -60,6 +60,8 @@ $payer->identification	= $identification;
 $payer->email			= "test_user_63274575@testuser.com";
 $payer->phone			= $phone;
 $payer->address			= $address;
+
+$preference->payer = $payer;
 //FIN Datos del pagador
 
 // Crea un ítem en la preferencia
